@@ -1,0 +1,42 @@
+body {
+  font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  z-index: 0;
+  padding:0;
+}
+a {
+  color: black;
+  text-decoration: none !important;
+}
+a:hover {
+  color: #ee7533;
+}
+img,
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+label {
+  font-weight: normal;
+  cursor: pointer;
+}
+.inlineBlock {
+  display: inline-block;
+}
+.mR15 {
+  margin-right: 15px;
+}
+.mB15 {
+  margin-bottom: 15px;
+}
+/*# sourceMappingURL=reset.css.map */
