@@ -70,7 +70,6 @@
 }
 .newsleft ul li{
      height:30px; line-height:30px; overflow:hidden; border-bottom:1px dashed #e6e6e6; text-indent:24px; 
-
 }
 .newsleft ul li a{ 
     text-decoration:none; color:#666666;
@@ -93,15 +92,70 @@
     margin:20px 0;
 }
 
+
  .tabClick{ background: #f3f3f3; overflow: hidden}
     .tabClick li{ height:40px; line-height: 40px;  float: left;width: 146px; text-align: center;padding:0 20px; }
     .tabClick li.active{ color: orangered; transition: 0.1s; font-weight: bold ;background-color:white;}
     .tabCon{ overflow: hidden}
     .tabBox{ position: relative}
-    .tabList{word-break: break-all; width:100%;float:left; line-height:100px; text-align:center; color:#D3D3D3; font-size:36px; font-family: "Arial Black"}
+    .tabList{word-break: break-all; width:100%;float:left;  text-align:center;  }
     .lineBorder{ height: 2px; overflow: hidden;  background: #f3f3f3}
     .lineDiv{ background: orangered; height: 2px; width: 146px;}
 
+    .product .product-box{
+        margin:0px auto;
+        padding:20px 15px;
+        width:95%;
+        height:290px;
+        border:1px  solid #D3D3D3;
+    }
+    .product .product-box img{
+        float:left;
+       
+    }
+    .product .plcontent{     
+        margin-left:20px;
+        float:left;
+       text-align:left;
+        
+    }
+.product .product-box .pltitle {
+    font-size:16px;
+    line-height:18px;
+}
+.product .product-box .plist {
+    margin-top:5px;
+    margin-bottom:5px;
+    width:400px;
+    height:115px;
+    padding:5px;
+    border-bottom:1px dotted #C3BEBE;
+    border-top:1px dotted #C3BEBE;
+    line-height:23px;
+}
+.product .product-box .memo{
+    font-size:16px;
+    color:#0099cc;
+}
+.product .product-box .btn-box{
+    border-left:dotted 1px #C3BEBE;
+    height:250px;
+    padding:90px 60px;
+    color:#ff9966;
+    font-size:16px;
+    font-weight:800;
+}
+.product .product-box .btn-box .price{
+    font-family:'Times New Roman', Times, serif ;
+    font-size:30px;
+}
+.product .product-box .btn-box button{
+    width:128px;
+    height:37px;
+    background-color:#ff9966;
+    color:white;
+    border-radius:2px;
+}
 
 footer{
     padding:20px;
