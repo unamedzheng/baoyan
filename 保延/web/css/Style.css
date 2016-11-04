@@ -109,13 +109,14 @@
         margin:10px auto;
         padding:20px 15px;
         width:95%;
-        height:290px;
+        height:270px;
         border:0.5px  solid #D3D3D3;
-        border-radius:3px
+        border-radius:3px;
+        text-align: center;
     }
     .product .product-box img{
         float:left;
-       
+       width:45%;
     }
     .product .plcontent{     
         margin-left:20px;
