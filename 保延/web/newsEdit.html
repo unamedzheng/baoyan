@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>news</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/reset.css" media="screen">
+    <link rel="stylesheet" href="css/Style.css" media="screen">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/summernote.css" rel="stylesheet" />
+    
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/summernote.js"></script>
+    <script src="js/summernote-zh-CN.js"></script>
+    <script type="text/javascript">
+    $('div.summernote').each(function() {
+        var $this = $(this);
+        var placeholder = $this.attr("placeholder") || '';
+        var url = $this.attr("action") || '';
+        $this.summernote({
+            lang : 'zh-CN',
+            placeholder : placeholder,
+            minHeight : 300,
+            dialogsFade : true,// Add fade effect on dialogs
+            dialogsInBody : true,// Dialogs can be placed in body, not in
+            // summernote.
+            disableDragAndDrop : false,// default false You can disable drag
+            // and drop
+            callbacks : {
+                onImageUpload : function(files) {
+                    var $files = $(files);
+                    $files.each(function() {
+                        var file = this;
+                        var data = new FormData();
+                        data.append("file", file);
+
+                        $.ajax({
+                            data : data,
+                            type : "POST",
+                            url : url,
+                            cache : false,
+                            contentType : false,
+                            processData : false,
+                            success : function(response) {
+                                var json = YUNM.jsonEval(response);
+                                YUNM.debug(json);
+                                YUNM.ajaxDone(json);
+
+                                if (json[YUNM.keys.statusCode] == YUNM.statusCode.ok) {
+                                    // 文件不为空
+                                    if (json[YUNM.keys.result]) {
+                                        var imageUrl = json[YUNM.keys.result].completeSavePath;
+                                        $this.summernote('insertImage', imageUrl, function($image) {
+
+                                        });
+                                    }
+                                }
+
+                            },
+                            error : YUNM.ajaxError
+                        });
+                    });
+                }
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form class="form-horizontal required-validate" action="#" enctype="multipart/form-data" method="post" onsubmit="return iframeCallback(this, pageAjaxDone)">
+            <div class="form-group">
+                <label for="" class="col-md-2 control-label">项目封面</label>
+                <div class="col-md-8 tl th">
+                    <input type="file" name="image" class="projectfile" value="${deal.image}" />
+                    <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-2 control-label">项目详情</label>
+                <div class="col-md-8">
+                    <div class="summernote" name="description" placeholder="请对项目进行详细的描述，使更多的人了解你的" action="${ctx}/file">${deal.description}</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="summernote"><p>Hello Summernote</p></div>
+
+    <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
+    <button id="save" class="btn btn-primary" onclick="save()" type="button">Save 2</button>
+    <div class="click2edit">click2edit</div>
+    <script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            lang: 'zh-CN'
+        });
+    });
+    var edit = function () {
+        $('.click2edit').summernote({ focus: true });
+    };
+
+    var save = function () {
+        var makrup = $('.click2edit').summernote('code');
+        $('.click2edit').summernote('destroy');
+    };
+    </script>
+</body>
+</html>
