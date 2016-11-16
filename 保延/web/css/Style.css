@@ -124,6 +124,36 @@
        text-align:left;
         
     }
+    .news-box{
+        margin:20px auto;
+    }
+    .news-box li{
+        width:100%;
+        height:30px;
+        line-height:30px;
+    }
+    .news-box .ntitle{
+        float:left;
+    }
+    .news-box .ndate{
+        
+        float:right;
+    }
+.news{
+    margin:20px auto;
+}
+.news .news-title {
+    text-align:center;
+}
+.news .news-title .sub-title{
+    height:40px;
+    padding-right:20px;
+    text-align:right;
+}
+.news .news-content{
+    text-align:left;
+    line-height:25px;
+}
 .product .product-box .pltitle {
     font-size:16px;
     line-height:18px;
