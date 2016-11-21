@@ -1,5 +1,6 @@
 ﻿body {
 }
+
 .navbar {
    font-size:large
 }
@@ -254,6 +255,21 @@
 .about .contact img{
    float:right;
 }
+.about .invite{
+    text-align:left;
+    margin:30px 0;
+    font-size:14px;
+    line-height:22px;
+}
+.about .define{
+    text-align:left;
+    margin:30px 0;
+    font-size:14px;
+    line-height:22px;
+}
+    .about .define img {
+        margin:30px 0px;
+    }
 
 footer{
     padding:20px;
